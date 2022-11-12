@@ -1,5 +1,20 @@
 import sqlalchemy
 
+'''
+TABLE dna_bases
+|id|base|
+
+TABLE rna_bases
+|id|base| -> id foreign key to dna_bases.id
+
+TABLE amino_acids
+|id|base(triplets)|corresponding aminoacid|
+'''
+
+
+
+
+
 SEQUENCES = {
     'UUU': 'F(Phe)', 'UUC': 'F(Phe)',
     'UUA': 'Leu', 'UUG': 'Leu', 'CUU': 'Leu', 'CUC': 'Leu', 'CUA': 'Leu', 'CUG': 'Leu',
