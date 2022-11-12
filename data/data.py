@@ -1,5 +1,3 @@
-import sqlalchemy
-
 '''
 TABLE dna_bases
 |id|base|
@@ -20,7 +18,7 @@ SEQUENCES = {
     'UUA': 'Leu', 'UUG': 'Leu', 'CUU': 'Leu', 'CUC': 'Leu', 'CUA': 'Leu', 'CUG': 'Leu',
     'UCU': 'Ser', 'UCC': 'Ser', 'UCA': 'Ser', 'UCG': 'Ser', 'AGU': 'Ser', 'AGC': 'Ser',
     'UAU': 'Y(Tyr)', 'UAC': 'Y(Tyr)',
-    'UAA': 'Stop', 'UAG': 'Stop', 'UGA': 'Stop',
+    'UAA': '.', 'UAG': '.', 'UGA': '.',
     'UGU': 'Cys', 'UGC': 'Cys',
     'UGG': 'W(Trp)',
     'CCU': 'Pro', 'CCC': 'Pro', 'CCA': 'Pro', 'CCG': 'Pro',
