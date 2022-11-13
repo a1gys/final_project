@@ -1,4 +1,17 @@
 from data import data
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
+import pandas as pd
+
+engine = create_engine("sqlite:///data/maindb.db", echo=True)
+Session = sessionmaker(bind=engine)
+session = Session()
+
+sql = "select codon, aminoacid_symbol from amino_acids"
+df = pd.read_sql(sql, con=engine)
+
+table = {codon: symbol for codon, symbol in 
+    zip(df.codon.to_list(), df.aminoacid_symbol.to_list())}
 
 def convert_dna_to_rna(sequence: str) -> str:
     new_sequence = sequence.replace('T', 'U')
@@ -12,10 +25,10 @@ def convert_rna_to_protein(sequence: str) -> str:
         sequence = sequence[:-2]
     for i in range(0, len(sequence), 3):
         codon = sequence[i:i+3]
-        if data.SEQUENCES[codon] == 'Stop':
+        '''if data.SEQUENCES[codon] == 'Stop':
             protein += '.'
         else:
-            protein += data.SEQUENCES[codon][0]
-
+            protein += data.SEQUENCES[codon][0]'''
+        protein += table[codon]
     return protein
 
