@@ -1,4 +1,3 @@
-from data import data
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 import pandas as pd
@@ -25,10 +24,6 @@ def convert_rna_to_protein(sequence: str) -> str:
         sequence = sequence[:-2]
     for i in range(0, len(sequence), 3):
         codon = sequence[i:i+3]
-        '''if data.SEQUENCES[codon] == 'Stop':
-            protein += '.'
-        else:
-            protein += data.SEQUENCES[codon][0]'''
         protein += table[codon]
     return protein
 

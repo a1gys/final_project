@@ -3,7 +3,7 @@ import script
 
 class ConverterTest(unittest.TestCase):
     
-    def test_convert_dna_to_rna(self):
+    def test_long_sequences(self):
         self.assertEqual(script.convert_dna_to_rna('ATTTGGCTACTAACAATCTA'), 'AUUUGGCUACUAACAAUCUA')
         self.assertEqual(script.convert_dna_to_rna('GTTGTAATGGCCTACATTA'), 'GUUGUAAUGGCCUACAUUA')
         self.assertEqual(script.convert_dna_to_rna('CAGGTGGTGTTGTTCAGTT'), 'CAGGUGGUGUUGUUCAGUU')
@@ -12,14 +12,8 @@ class ConverterTest(unittest.TestCase):
         self.assertEqual(script.convert_dna_to_rna('TATGAAAAACTCAAA'), 'UAUGAAAAACUCAAA')
         self.assertEqual(script.convert_dna_to_rna('CCCGTCCTTGATTGGCTTGAAGAGAAGTTT'), 'CCCGUCCUUGAUUGGCUUGAAGAGAAGUUU')
 
-    def test_convert_rna_to_protein(self):
-        self.assertEqual(script.convert_rna_to_protein('AUUUGGCUACUAACAAUCUA'), 'IWLLTI')
-        self.assertEqual(script.convert_rna_to_protein('GUUGUAAUGGCCUACAUUA'), 'VVMAYI')
-        self.assertEqual(script.convert_rna_to_protein('CAGGUGGUGUUGUUCAGUU'), 'QVVLFS')
-        self.assertEqual(script.convert_rna_to_protein('GCUAACUAAC'), 'AN.')
-        self.assertEqual(script.convert_rna_to_protein('GCUAACUAACAUCUUUGGCACUGUU'), 'AN.HLWHC')
-        self.assertEqual(script.convert_rna_to_protein('UAUGAAAAACUCAAA'), 'YEKLK')
-        self.assertEqual(script.convert_rna_to_protein('CCCGUCCUUGAUUGGCUUGAAGAGAAGUUU'), 'PVLDWLEEKF')
+    def test_empty_sequence(self):
+        self.assertEqual(script.convert_dna_to_rna(''), '')
 
 if __name__ == '__main__':
     unittest.main()
