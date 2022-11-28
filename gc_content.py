@@ -13,6 +13,9 @@ def gc_ratio(sequence: str) -> float:
     '''
     base_count = {}
 
+    if not len(sequence):
+        assert ZeroDivisionError
+
     for base in BASES:
         counter = sequence.count(base)
         base_count[base] = counter
@@ -50,3 +53,4 @@ def gc_ratio_plot(genom: str, step: int = 100):
     plt.savefig("gc_content_plot.png")
 
     return sequences
+
