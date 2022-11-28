@@ -1,8 +1,10 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 import pandas as pd
+from data.config import postgresql as setting
 
-engine = create_engine("sqlite:///data/maindb.db", echo=True)
+url = f"postgresql://{setting['pguser']}:{setting['pgpassword']}@{setting['pghost']}:{setting['pgport']}/{setting['pgdb']}"
+engine = create_engine(url, echo=True)
 Session = sessionmaker(bind=engine)
 session = Session()
 
